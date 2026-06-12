@@ -1,6 +1,7 @@
 type: object
 required:
   - sku
+  - stock
 properties:
   sku:
     type: string
@@ -8,3 +9,5 @@ properties:
     type: string
   stock:
     type: integer
+  warehouse:
+    type: string
