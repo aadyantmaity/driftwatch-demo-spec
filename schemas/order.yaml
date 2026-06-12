@@ -1,10 +1,9 @@
 type: object
 required:
   - item
+  - quantity
 properties:
   item:
     type: string
   quantity:
     type: integer
-  note:
-    type: string
