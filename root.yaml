@@ -1,0 +1,39 @@
+openapi: 3.0.3
+info:
+  title: orders-demo
+  version: 1.0.0
+paths:
+  /orders:
+    post:
+      operationId: createOrder
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: './schemas/order.yaml'
+      responses:
+        "201":
+          description: Created
+          content:
+            application/json:
+              schema:
+                $ref: './schemas/order.yaml'
+  /orders/{id}:
+    get:
+      operationId: getOrder
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: An order
+          content:
+            application/json:
+              schema:
+                $ref: './schemas/order.yaml'
+        "404":
+          $ref: './schemas/errors.yaml#/NotFound'
