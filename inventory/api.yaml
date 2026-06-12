@@ -1,0 +1,32 @@
+openapi: 3.0.3
+info:
+  title: inventory-demo
+  version: 1.0.0
+paths:
+  /products:
+    get:
+      operationId: listProducts
+      responses:
+        "200":
+          description: All products
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: './product.yaml'
+    post:
+      operationId: createProduct
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: './product.yaml'
+      responses:
+        "201":
+          description: Created
+          content:
+            application/json:
+              schema:
+                $ref: './product.yaml'
